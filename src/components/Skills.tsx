@@ -22,12 +22,9 @@ import {
 } from "react-icons/tb";
 import SectionHeading from "./SectionHeading";
 
-type Tier = "Expert" | "Advanced" | "Proficient";
-type Item = { name: string; icon: IconType; tier: Tier };
+type Item = { name: string; icon: IconType };
 type Accent = "blue" | "purple" | "cyan";
 type Group = { category: string; accent: Accent; items: Item[] };
-
-const TIER_DOTS: Record<Tier, number> = { Expert: 5, Advanced: 4, Proficient: 3 };
 
 const accentText: Record<Accent, string> = {
   blue: "text-blue-light",
@@ -40,60 +37,41 @@ const groups: Group[] = [
     category: "Cloud & Data Platform",
     accent: "blue",
     items: [
-      { name: "Google Cloud Platform", icon: SiGooglecloud, tier: "Advanced" },
-      { name: "BigQuery", icon: SiGooglebigquery, tier: "Expert" },
-      { name: "Data Warehousing", icon: TbBuildingWarehouse, tier: "Advanced" },
+      { name: "Google Cloud Platform", icon: SiGooglecloud },
+      { name: "BigQuery", icon: SiGooglebigquery },
+      { name: "Data Warehousing", icon: TbBuildingWarehouse },
     ],
   },
   {
     category: "Data Engineering",
     accent: "purple",
     items: [
-      { name: "SQL", icon: TbDatabase, tier: "Expert" },
-      { name: "Python", icon: SiPython, tier: "Advanced" },
-      { name: "ETL Development", icon: TbArrowsShuffle, tier: "Expert" },
-      { name: "Data Modeling", icon: TbSchema, tier: "Advanced" },
+      { name: "SQL", icon: TbDatabase },
+      { name: "Python", icon: SiPython },
+      { name: "ETL Development", icon: TbArrowsShuffle },
+      { name: "Data Modeling", icon: TbSchema },
     ],
   },
   {
     category: "Orchestration & Data Quality",
     accent: "cyan",
     items: [
-      { name: "Apache Airflow", icon: SiApacheairflow, tier: "Advanced" },
-      { name: "Data Quality Engineering", icon: TbShieldCheck, tier: "Advanced" },
-      { name: "Data Validation", icon: TbChecks, tier: "Advanced" },
-      { name: "Workflow Automation", icon: TbBolt, tier: "Advanced" },
+      { name: "Apache Airflow", icon: SiApacheairflow },
+      { name: "Data Quality Engineering", icon: TbShieldCheck },
+      { name: "Data Validation", icon: TbChecks },
+      { name: "Workflow Automation", icon: TbBolt },
     ],
   },
   {
     category: "Analytics & Tools",
     accent: "blue",
     items: [
-      { name: "Power BI", icon: TbChartHistogram, tier: "Proficient" },
-      { name: "Git", icon: SiGit, tier: "Advanced" },
-      { name: "GitHub", icon: SiGithub, tier: "Advanced" },
+      { name: "Power BI", icon: TbChartHistogram },
+      { name: "Git", icon: SiGit },
+      { name: "GitHub", icon: SiGithub },
     ],
   },
 ];
-
-function Dots({ filled }: { filled: number }) {
-  return (
-    <div className="flex items-center gap-1">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <motion.span
-          key={i}
-          initial={{ scale: 0, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.3, delay: i * 0.05 }}
-          className={`h-1.5 w-1.5 rounded-full ${
-            i < filled ? "bg-gradient-to-r from-blue to-purple" : "bg-white/15"
-          }`}
-        />
-      ))}
-    </div>
-  );
-}
 
 export default function Skills() {
   return (
@@ -131,22 +109,14 @@ export default function Skills() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: gi * 0.06 + i * 0.05 }}
                     whileHover={{ y: -5 }}
-                    className="group relative flex flex-col gap-3 overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] p-4 transition-colors hover:border-purple/50 hover:bg-white/[0.05]"
+                    className="group relative flex items-center gap-3 overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3.5 transition-colors hover:border-purple/50 hover:bg-white/[0.05]"
                   >
                     {/* hover sheen */}
                     <span className="pointer-events-none absolute -inset-px -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-                    <div className="flex items-center gap-2.5">
-                      <span className={`text-2xl ${accentText[group.accent]} transition-transform duration-300 group-hover:scale-110`}>
-                        <Icon />
-                      </span>
-                      <span className="text-sm font-medium leading-tight">{item.name}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <Dots filled={TIER_DOTS[item.tier]} />
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-muted/80">
-                        {item.tier}
-                      </span>
-                    </div>
+                    <span className={`text-2xl ${accentText[group.accent]} transition-transform duration-300 group-hover:scale-110`}>
+                      <Icon />
+                    </span>
+                    <span className="text-sm font-medium leading-tight">{item.name}</span>
                   </motion.div>
                 );
               })}
