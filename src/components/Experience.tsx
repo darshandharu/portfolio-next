@@ -8,7 +8,7 @@ import SectionHeading from "./SectionHeading";
 export default function Experience() {
   return (
     <section id="experience" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
-      <SectionHeading index="03" title="Experience" />
+      <SectionHeading title="Experience" />
 
       <div className="relative pl-8 md:pl-10">
         {/* animated vertical line */}

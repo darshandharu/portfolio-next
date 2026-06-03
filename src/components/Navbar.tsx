@@ -36,7 +36,9 @@ export default function Navbar() {
     >
       <nav
         className={`mx-auto flex max-w-6xl items-center justify-between rounded-2xl px-4 md:px-6 transition-all duration-300 ${
-          scrolled ? "glass py-2.5 shadow-lg shadow-black/20" : "py-2"
+          scrolled
+            ? "border border-white/10 bg-[#0a0e1d]/92 py-2.5 shadow-lg shadow-black/40 backdrop-blur-xl"
+            : "py-2"
         }`}
         style={{ width: "calc(100% - 2rem)" }}
       >
@@ -83,7 +85,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="mx-4 mt-2 overflow-hidden rounded-2xl glass p-2 lg:hidden"
+            className="mx-4 mt-2 overflow-hidden rounded-2xl border border-white/10 bg-[#0a0e1d]/97 p-2 backdrop-blur-xl lg:hidden"
           >
             {LINKS.map(([label, href]) => (
               <a

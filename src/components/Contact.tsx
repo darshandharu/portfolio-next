@@ -39,7 +39,6 @@ export default function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
       <SectionHeading
-        index="07"
         title="Get In Touch"
         subtitle="Open to Data Engineer, Analytics Engineer, and Cloud Data Engineer roles. Let's talk."
       />

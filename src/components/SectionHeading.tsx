@@ -1,13 +1,11 @@
 import Reveal from "./Reveal";
 
-type Props = { index: string; title: string; subtitle?: string };
+type Props = { title: string; subtitle?: string };
 
-export default function SectionHeading({ index, title, subtitle }: Props) {
+export default function SectionHeading({ title, subtitle }: Props) {
   return (
     <Reveal className="mb-12 md:mb-16">
-      <p className="font-mono text-sm tracking-widest text-purple-light/80 mb-3">
-        {index} —
-      </p>
+      <div className="mb-4 h-1 w-12 rounded-full bg-gradient-to-r from-blue to-purple" />
       <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
         <span className="gradient-text">{title}</span>
       </h2>

@@ -121,7 +121,6 @@ export default function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
       <SectionHeading
-        index="04"
         title="Featured Projects"
         subtitle="Click a card to expand the full breakdown of features and architecture."
       />

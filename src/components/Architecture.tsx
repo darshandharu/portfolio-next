@@ -19,7 +19,6 @@ export default function Architecture() {
   return (
     <section id="architecture" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
       <SectionHeading
-        index="06"
         title="Data Platform Architecture"
         subtitle="An end-to-end GCP data pipeline. Hover or tap any stage to explore what it does."
       />

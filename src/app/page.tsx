@@ -17,6 +17,8 @@ export default function Home() {
     <>
       <LoadingScreen />
       <ClientBackground />
+      {/* top fade so scrolling content dissolves before reaching the navbar */}
+      <div className="pointer-events-none fixed inset-x-0 top-0 z-40 h-24 bg-gradient-to-b from-bg via-bg/85 to-transparent" />
       <Navbar />
       <main>
         <Hero />

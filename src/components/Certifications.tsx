@@ -16,7 +16,6 @@ export default function Certifications() {
   return (
     <section id="certifications" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
       <SectionHeading
-        index="05"
         title="Certifications"
         subtitle="Google Cloud certified across engineering, foundations, and generative AI."
       />
