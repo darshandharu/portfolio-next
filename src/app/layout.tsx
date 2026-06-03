@@ -14,7 +14,7 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
-const SITE_URL = "https://darshanbs.vercel.app";
+const SITE_URL = "https://portfolio-next-darshan-bs.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
