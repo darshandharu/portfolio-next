@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ---------- Design tokens (Tailwind v4 @theme) ---------- */
+@theme {
+  --color-bg: #050711;
+  --color-bg-soft: #0a0e1d;
+  --color-surface: #0e1426;
+  --color-line: #1c2740;
+  --color-text: #e8eefb;
+  --color-muted: #93a1bd;
+  --color-blue: #3b82f6;
+  --color-blue-light: #60a5fa;
+  --color-purple: #8b5cf6;
+  --color-purple-light: #a78bfa;
+  --color-cyan: #22d3ee;
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ---------- Base ---------- */
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Ambient gradient glow fixed behind everything */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(60rem 40rem at 78% -8%, rgba(139, 92, 246, 0.18), transparent 60%),
+    radial-gradient(50rem 38rem at 10% 8%, rgba(59, 130, 246, 0.16), transparent 60%),
+    radial-gradient(46rem 40rem at 50% 110%, rgba(34, 211, 238, 0.10), transparent 60%);
+  pointer-events: none;
+}
+
+/* Subtle grid */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 100% 70% at 50% 0%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 70% at 50% 0%, #000 30%, transparent 75%);
+  pointer-events: none;
+}
+
+::selection { background: rgba(139, 92, 246, 0.35); color: #fff; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-blue), var(--color-purple));
+  border-radius: 99px; border: 2px solid var(--color-bg);
+}
+
+/* ---------- Reusable classes ---------- */
+.glass {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.glass-hover {
+  transition: border-color .3s, transform .3s, box-shadow .3s, background .3s;
+}
+.glass-hover:hover {
+  border-color: rgba(139, 92, 246, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 18px 50px -12px rgba(99, 102, 241, 0.35);
+}
+
+.gradient-text {
+  background: linear-gradient(110deg, var(--color-blue-light) 0%, var(--color-purple-light) 50%, var(--color-cyan) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Animations ---------- */
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.caret { display: inline-block; width: 3px; height: 1em; margin-left: 3px; background: var(--color-purple-light); transform: translateY(2px); animation: blink 1s step-end infinite; }
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+.float { animation: float-y 6s ease-in-out infinite; }
+
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.spin-slow { animation: spin-slow 16s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  html { scroll-behavior: auto; }
 }

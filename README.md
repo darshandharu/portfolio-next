@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Darshan BS — Portfolio (Next.js)
 
-## Getting Started
+A modern, interactive, recruiter-focused portfolio for a **Data Engineer**.
+Dark-mode SaaS aesthetic (Stripe/Vercel/Linear inspired) with blue→purple gradients,
+glassmorphism, a Three.js particle background, and Framer Motion animations.
 
-First, run the development server:
+## ✨ Features
+
+- **Hero** with typewriter role rotation, floating tech icons, and 3 CTAs
+- **About**, animated **Skills dashboard** (proficiency bars), vertical **Experience timeline**
+- **Featured Projects** as expandable interactive cards
+- **Certifications** as animated Google Cloud badges
+- **Interactive architecture diagram** (hover/tap each pipeline stage)
+- **Animated achievement counters**
+- **Contact form** with client-side validation (opens a prefilled email)
+- Three.js particle field, scroll-triggered animations, pipeline loading screen
+- SEO metadata + Open Graph, responsive, statically prerendered (fast Lighthouse)
+
+## 🧱 Tech Stack
+
+Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 ·
+Framer Motion · Three.js + @react-three/fiber · react-icons
+
+## 🚀 Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ☁️ Deploy to Vercel (recommended, free)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Option A — Git + Vercel dashboard (easiest):**
+1. Create a GitHub repo (e.g. `portfolio-next`) and push this folder:
+   ```bash
+   git add .
+   git commit -m "Next.js portfolio"
+   git branch -M main
+   git remote add origin https://github.com/darshandharu/portfolio-next.git
+   git push -u origin main
+   ```
+2. Go to <https://vercel.com/new>, import the repo, and click **Deploy**.
+   Vercel auto-detects Next.js — no config needed.
+3. You'll get a live URL like `https://portfolio-next-xxxx.vercel.app`.
+   Add a custom domain in **Project → Settings → Domains** if you want.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Option B — Vercel CLI:**
+```bash
+npm i -g vercel
+vercel          # follow prompts (link/create project)
+vercel --prod   # deploy to production
+```
 
-## Learn More
+## ✏️ Editing content
 
-To learn more about Next.js, take a look at the following resources:
+All text lives in **`src/lib/data.ts`** — profile, skills, experience, projects,
+certifications, architecture stages, and achievement counters. Edit there; no need
+to touch component code.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### ⚠️ Update before sharing
+- **Certification verify links** in `data.ts` point to a placeholder
+  `credly.com/users/darshan-bs`. Replace with your real Credly / Google Cloud
+  credential URLs.
+- **Resume** is at `public/resume.pdf` — replace to update the download.
+- The `SITE_URL` in `src/app/layout.tsx` is set to `https://darshanbs.vercel.app`;
+  change it to your final domain so Open Graph/SEO links are correct.
