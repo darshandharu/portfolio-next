@@ -55,7 +55,7 @@ export const experience: Experience[] = [
   {
     role: "Data Engineer",
     company: "Accenture",
-    period: "Sept 2023 – Present",
+    period: "Dec 2022 – Sept 2025",
     location: "Bengaluru, India",
     points: [
       "Built and optimized ETL pipelines using BigQuery for incremental, monthly, and full-history loads.",
