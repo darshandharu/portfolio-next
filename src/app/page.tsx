@@ -1,6 +1,6 @@
 import About from "@/components/About";
 import Achievements from "@/components/Achievements";
-import ArchitecturePlayground from "@/components/ArchitecturePlayground";
+import PipelineConsole from "@/components/PipelineConsole";
 import Certifications from "@/components/Certifications";
 import ClientBackground from "@/components/ClientBackground";
 import Contact from "@/components/Contact";
@@ -28,7 +28,7 @@ export default function Home() {
         <Achievements />
         <Skills />
         <Experience />
-        <ArchitecturePlayground />
+        <PipelineConsole />
         <DataQualityDashboard />
         <Projects />
         <Impact />

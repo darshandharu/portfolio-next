@@ -8,7 +8,7 @@ import { profile } from "@/lib/data";
 const LINKS = [
   ["About", "#about"],
   ["Stack", "#skills"],
-  ["Architecture", "#architecture"],
+  ["Pipeline", "#architecture"],
   ["Monitoring", "#data-quality"],
   ["Projects", "#projects"],
   ["Impact", "#impact"],
