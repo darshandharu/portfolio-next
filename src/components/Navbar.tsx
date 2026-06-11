@@ -7,10 +7,11 @@ import { profile } from "@/lib/data";
 
 const LINKS = [
   ["About", "#about"],
-  ["Skills", "#skills"],
-  ["Experience", "#experience"],
-  ["Projects", "#projects"],
+  ["Stack", "#skills"],
   ["Architecture", "#architecture"],
+  ["Monitoring", "#data-quality"],
+  ["Projects", "#projects"],
+  ["Impact", "#impact"],
   ["Contact", "#contact"],
 ];
 

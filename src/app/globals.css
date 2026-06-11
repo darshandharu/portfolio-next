@@ -104,6 +104,91 @@ body::after {
 @keyframes spin-slow { to { transform: rotate(360deg); } }
 .spin-slow { animation: spin-slow 16s linear infinite; }
 
+/* ---------- Aurora background ---------- */
+@keyframes aurora-pan {
+  0%   { transform: translate3d(-8%, -4%, 0) rotate(0deg); }
+  50%  { transform: translate3d(8%, 4%, 0) rotate(8deg); }
+  100% { transform: translate3d(-8%, -4%, 0) rotate(0deg); }
+}
+.aurora {
+  position: absolute;
+  inset: -30%;
+  pointer-events: none;
+  filter: blur(60px);
+  opacity: 0.5;
+  background:
+    radial-gradient(40% 40% at 20% 30%, rgba(59,130,246,0.45), transparent 60%),
+    radial-gradient(45% 45% at 80% 20%, rgba(139,92,246,0.40), transparent 60%),
+    radial-gradient(40% 50% at 60% 80%, rgba(34,211,238,0.32), transparent 60%);
+  animation: aurora-pan 18s ease-in-out infinite;
+}
+
+/* ---------- Animated gradient border ---------- */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes border-rotate { to { --angle: 360deg; } }
+.gradient-border {
+  position: relative;
+  isolation: isolate;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--angle), transparent 30%, var(--color-blue), var(--color-purple), var(--color-cyan), transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: border-rotate 6s linear infinite;
+  z-index: -1;
+}
+
+/* ---------- Live status pulse ---------- */
+@keyframes live-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(52,211,153,0.55); }
+  70%  { box-shadow: 0 0 0 7px rgba(52,211,153,0); }
+  100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); }
+}
+.live-dot { animation: live-pulse 2s ease-out infinite; }
+
+/* ---------- Pipeline flow (SVG stroke) ---------- */
+@keyframes dash-flow { to { stroke-dashoffset: -1000; } }
+.flow-line { stroke-dasharray: 6 10; animation: dash-flow 14s linear infinite; }
+
+/* ---------- Streaming ticker ---------- */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-track { display: inline-flex; white-space: nowrap; animation: marquee 28s linear infinite; }
+
+/* ---------- Scanline shimmer for dashboard cards ---------- */
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+
+/* ---------- Hide scrollbar (keep scroll) ---------- */
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ---------- Terminal ---------- */
+.terminal {
+  background: #060a14;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.7;
+  overflow: hidden;
+}
+.terminal-bar {
+  display: flex; align-items: center; gap: 6px;
+  padding: 9px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.02);
+}
+.terminal-dot { width: 11px; height: 11px; border-radius: 50%; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
   html { scroll-behavior: auto; }

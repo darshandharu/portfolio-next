@@ -31,7 +31,10 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 export default function Achievements() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-12">
-      <div className="grid grid-cols-2 gap-4 rounded-3xl glass p-8 md:grid-cols-4 md:p-10">
+      <div className="relative grid grid-cols-2 gap-4 rounded-3xl glass p-8 md:grid-cols-4 md:p-10">
+        <div className="absolute -top-3 left-6 rounded-full bg-bg px-3 font-mono text-[10px] uppercase tracking-widest text-muted">
+          career.metrics
+        </div>
         {achievements.map((a, i) => (
           <motion.div
             key={a.label}

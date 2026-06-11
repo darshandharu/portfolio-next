@@ -71,6 +71,26 @@ function Card({ project, index }: { project: Project; index: number }) {
             <p className="mt-5 text-sm leading-relaxed text-text/85">
               {project.description}
             </p>
+
+            {/* system design / architecture flow */}
+            <div className="mt-5">
+              <div className="mb-2 font-mono text-[10px] uppercase tracking-wider text-muted">
+                System design
+              </div>
+              <div className="flex flex-wrap items-center gap-1.5 rounded-lg border border-white/10 bg-black/20 p-3">
+                {project.arch.map((stage, si) => (
+                  <span key={stage} className="flex items-center gap-1.5">
+                    <span className="rounded-md bg-white/[0.05] px-2.5 py-1 font-mono text-[11px] text-text/85">
+                      {stage}
+                    </span>
+                    {si < project.arch.length - 1 && (
+                      <span className={accentText[project.accent]}>→</span>
+                    )}
+                  </span>
+                ))}
+              </div>
+            </div>
+
             <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
               {project.features.map((f) => (
                 <div

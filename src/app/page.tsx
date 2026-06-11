@@ -1,12 +1,14 @@
 import About from "@/components/About";
 import Achievements from "@/components/Achievements";
-import Architecture from "@/components/Architecture";
+import ArchitecturePlayground from "@/components/ArchitecturePlayground";
 import Certifications from "@/components/Certifications";
 import ClientBackground from "@/components/ClientBackground";
 import Contact from "@/components/Contact";
+import DataQualityDashboard from "@/components/DataQualityDashboard";
 import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
+import Impact from "@/components/Impact";
 import LoadingScreen from "@/components/LoadingScreen";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
@@ -23,12 +25,14 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <Achievements />
         <Skills />
         <Experience />
+        <ArchitecturePlayground />
+        <DataQualityDashboard />
         <Projects />
+        <Impact />
         <Certifications />
-        <Architecture />
-        <Achievements />
         <Contact />
       </main>
       <Footer />
