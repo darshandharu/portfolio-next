@@ -188,7 +188,7 @@ export const achievements: Achievement[] = [
 export type PipelineStage = { id: string; label: string; sub: string };
 export const heroPipeline: PipelineStage[] = [
   { id: "src", label: "Sources", sub: "APIs · DBs · Files" },
-  { id: "kafka", label: "Kafka", sub: "Stream ingest" },
+  { id: "gcs", label: "Cloud Storage", sub: "Landing zone" },
   { id: "airflow", label: "Airflow", sub: "Orchestration" },
   { id: "bq", label: "BigQuery", sub: "Warehouse" },
   { id: "dash", label: "Dashboard", sub: "Analytics" },

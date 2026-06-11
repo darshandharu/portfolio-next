@@ -2,14 +2,14 @@
 
 import { motion } from "framer-motion";
 import type { IconType } from "react-icons";
-import { SiApacheairflow, SiApachekafka, SiGooglebigquery } from "react-icons/si";
-import { TbChartDots3, TbDatabaseImport } from "react-icons/tb";
+import { SiApacheairflow, SiGooglebigquery } from "react-icons/si";
+import { TbChartDots3, TbCloudUpload, TbDatabaseImport } from "react-icons/tb";
 
 type Node = { id: string; label: string; sub: string; icon: IconType; accent: string };
 
 const NODES: Node[] = [
   { id: "src", label: "Sources", sub: "APIs · DBs · Files", icon: TbDatabaseImport, accent: "text-cyan" },
-  { id: "kafka", label: "Kafka", sub: "Stream ingest", icon: SiApachekafka, accent: "text-blue-light" },
+  { id: "gcs", label: "Cloud Storage", sub: "Landing zone (GCS)", icon: TbCloudUpload, accent: "text-blue-light" },
   { id: "airflow", label: "Airflow", sub: "Orchestration", icon: SiApacheairflow, accent: "text-purple-light" },
   { id: "bq", label: "BigQuery", sub: "Warehouse", icon: SiGooglebigquery, accent: "text-blue-light" },
   { id: "dash", label: "Dashboard", sub: "Analytics", icon: TbChartDots3, accent: "text-cyan" },

@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FiArrowRight, FiDownload, FiMail } from "react-icons/fi";
-import { SiApacheairflow, SiApachekafka, SiGooglebigquery, SiGooglecloud } from "react-icons/si";
-import { TbChartDots3 } from "react-icons/tb";
+import { SiApacheairflow, SiGooglebigquery, SiGooglecloud } from "react-icons/si";
+import { TbChartDots3, TbCloudUpload } from "react-icons/tb";
 import { liveKpis, profile } from "@/lib/data";
 import PipelineFlow from "./PipelineFlow";
 import Ticker from "./Ticker";
@@ -34,7 +34,7 @@ function useTypewriter(words: string[], speed = 85, pause = 1500) {
 const FLOATERS = [
   { Icon: SiGooglebigquery, cls: "left-[6%] top-[24%] text-blue-light", d: "0s" },
   { Icon: SiApacheairflow, cls: "right-[7%] top-[20%] text-purple-light", d: "1.4s" },
-  { Icon: SiApachekafka, cls: "left-[9%] bottom-[16%] text-cyan", d: "0.7s" },
+  { Icon: TbCloudUpload, cls: "left-[9%] bottom-[16%] text-cyan", d: "0.7s" },
   { Icon: SiGooglecloud, cls: "right-[10%] bottom-[20%] text-blue-light", d: "2s" },
   { Icon: TbChartDots3, cls: "right-[24%] top-[12%] text-purple-light", d: "1s" },
 ];
@@ -107,8 +107,8 @@ export default function Hero() {
             transition={{ delay: base + 0.45, duration: 0.5 }}
             className="mx-auto mt-5 max-w-2xl text-base text-muted md:text-lg"
           >
-            Building scalable, cloud-native data platforms — streaming ingestion, ETL
-            orchestration, and analytics on Google Cloud &amp; BigQuery.
+            Building scalable, cloud-native data platforms — batch &amp; incremental
+            ingestion, ETL orchestration, and analytics on Google Cloud &amp; BigQuery.
           </motion.p>
 
           <motion.div
